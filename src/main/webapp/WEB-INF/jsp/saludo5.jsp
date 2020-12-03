@@ -4,10 +4,10 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Saludo4</title>
+<title>Saludo5</title>
 </head>
 <body>
-	<h1>Saludo4</h1>
-	hola ${nombre}
+	<h1>Saludo5</h1>
+	hola ${nombre} ${apellido}
 </body>
 </html>

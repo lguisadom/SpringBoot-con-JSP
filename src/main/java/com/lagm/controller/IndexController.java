@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class IndexController {
@@ -42,4 +43,27 @@ public class IndexController {
 		model.addAttribute("nombre", nombre);
 		return "saludo3";
 	}
+	
+	/* Invocacion:
+	 * http://localhost:8087/saludo4
+	 * http://localhost:8087/saludo4?nombre=Lourdes
+	 * */
+	@GetMapping("/saludo4")
+	public String saludar4(String nombre, Model model) {
+		model.addAttribute("nombre", nombre);
+		return "saludo4";
+	}
+	
+	/* Invocacion:
+	 * http://localhost:8087/saludo5
+	 * http://localhost:8087/saludo5?nombre=Lourdes
+	 * */
+	@GetMapping("/saludo5")
+	public ModelAndView saludar5(@RequestParam(name = "nombre", defaultValue = "Luis", required = false)String nombre) {
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("nombre", nombre);
+		mav.setViewName("saludo5");
+		return mav;
+	}
+	
 }
