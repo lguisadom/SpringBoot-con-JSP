@@ -59,10 +59,11 @@ public class IndexController {
 	 * http://localhost:8087/saludo5?nombre=Lourdes
 	 * */
 	@GetMapping("/saludo5")
-	public ModelAndView saludar5(@RequestParam(name = "nombre", defaultValue = "Luis", required = false)String nombre) {
+	public ModelAndView saludar5(@RequestParam(name = "nombre", defaultValue = "Luis", required = false)String nombre, Model model) {
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("nombre", nombre);
 		mav.setViewName("saludo5");
+		model.addAttribute("apellido", "Guisado");
 		return mav;
 	}
 	
